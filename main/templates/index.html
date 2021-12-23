@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'indexstyles.css' %}">
+   <title>WW Register or log in</title>
+</head>
+<body>
+   <div id="container">
+
+      <h1>Welcome to whale watching!</h1>
+      <h3>Please log in to track your favorite coins' whales.</h3>
+
+      {% if messages %}
+      <ul>    
+         {% for message in messages %}    
+         <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+         {% endfor %}
+      </ul>
+      {% endif %}
+      
+      <div id="content">
+         <form action="/reg" method="POST">
+         {% csrf_token %}
+            
+            <h2>Registration</h2>
+
+            <label>First name</label>
+            <input class="entry" type="text" name="fname">
+            <label>Last name</label>
+            <input class="entry" type="text" name="lname">
+            <label>Email</label>
+            <input class="entry" type="text" name="email">
+            <label>Password</label>
+            <input class="entry" type="text" name="password">
+            <label>Confirm password</label>
+            <input class="entry" type="text" name="p2">
+
+            <input class="button" type="Submit" value="Register" name="reg">
+         </form>
+
+         <form action="login" method="POST">
+         {% csrf_token %}
+            
+            <h2>Login</h2>
+
+            <label>Email</label>
+            <input class="entry" type="text" name="email">
+            <label>Password</label>
+            <input class="entry" type="text" name="password">
+
+            <input class="button" type="Submit" value="Login" name="login">
+         </form>
+      </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+/* CSS resets */
+*{
+	vertical-align: baseline;
+	/* outline: green solid 1px; */
+	padding: 0;
+	margin: 0;
+   box-sizing: border-box;
+   font-family: sans-serif;
+}
+
+#container{
+	background-image: url("/static/images/background.jpg");
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	display: flex;
+	flex-flow: column;
+	height: 100vh;
+   width: 100vw;
+	justify-content: space-between;
+	overflow: scroll;
+}
+
+#header{
+	display: flex;
+	justify-content: space-between;
+}
+
+#header h1{
+	color: rgb(180, 212, 255);
+	font-family: Ubuntu;
+	width: 13%;
+	padding-left: 3px;
+}
+
+#header .toptext{
+	font-size: 20px;
+	font-family: Licorice;
+}
+
+#buttons{
+	display: flex;
+	flex-flow: column;
+	/* width: 80%; */
+	justify-content: flex-end;
+
+}
+#buttons ul{
+	display:flex;
+	justify-content: flex-end;
+	padding-right: 5px;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background: rgb(3,29,54);
+	background: linear-gradient(90deg, rgba(3,29,54,0) 0%, rgba(36,59,91,1) 70%, rgba(0,15,18,1) 100%); 
+}
+
+#buttons li{
+	list-style-type: none;
+	border-left: 1.5px solid black;
+	height: 41px;
+	width: 150px;
+	display: flex;
+	justify-content: center;
+	line-height: 37px;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+}
+
+#buttons a{
+	text-align: center;
+	width: 95%;
+	color: #17C3B2;
+	transition: .3s;
+}
+
+#buttons .deluser:hover{
+	color: #c0c317;
+}
+
+#buttons a:hover{
+	color: rgb(4, 29, 97);
+}
+
+#buttons form{
+	display: flex;
+	width: 100%;
+	height: 50px;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: 5px;
+}
+
+#buttons .liquid {
+	padding: 0.9em 1em;
+	border: 2px solid #17C3B2;
+	border-radius: 3px;
+	margin-right: 3em;
+	overflow: hidden;
+	background-color: transparent;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 14px;
+	color: #ddd;
+	transition: .3s;
+	z-index: 1;
+	font-family: inherit;
+	color: #17C3B2;
+}
+
+#buttons .liquid:hover {
+	color: rgb(0, 70, 70);
+}
+
+#ck-button label {
+	float:left;
+	width:9em;
+	margin: 0 1.2em;
+}
+
+#ck-button label span {
+	background-color:transparent;
+	border: 2px solid #17C3B2;
+	border-radius: 3px;
+	text-align:center;
+	padding:3px 0px;
+	display:block;
+	color: #17C3B2;
+	transition: .3s;
+	font-family: inherit;
+	font-size: 16px;
+}
+
+#ck-button label input {
+	position:absolute;
+	top:-20px;
+}
+
+#ck-button input:checked + span {
+	background-color:rgba(23, 195, 178, .8);
+	color:rgb(215, 235, 236);
+}
+
+#middle{
+	height: 100%;
+	display: flex;
+	flex-flow: row;
+}
+
+#sidebar{
+	width: 170px;
+	height: auto;
+	flex-flow: column;
+	justify-content: flex-start;
+}
+
+#sidebar p{
+	color: #c0c317;
+	padding: 1.5em 0;
+	font-family: Ubuntu;
+	font-size: 14px;
+}
+
+#sidbar ul{
+	width: inherit;
+	flex-flow: column;
+}
+
+#sidebar li{
+	display: flex;
+	width: inherit;
+	justify-content: center;
+	margin: 1.5em 0;
+}
+
+#sidebar a{
+	font-family: Ubuntu;
+	color: #17C3B2;
+	width: 95%;
+	text-indent: 10px;
+	transition: .3s;
+}
+
+#sidebar a:hover{
+	color: rgb(4, 29, 97);
+}
+
+#middle{
+	padding-top: 1em;
+	width: 95%;
+	font-display: flex;
+}
+
+#graphs{
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.bk-root{
+	margin-top: 10px;
+}
+
+#footer{
+	color: #c0c317;
+	font-family: Ubuntu;
+	font-size: 9px;
+}

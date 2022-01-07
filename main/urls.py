@@ -10,5 +10,10 @@ urlpatterns = [
    path('login', views.login),
    # GET method logging the user out
    path('logout', views.logout),
-   # other shits
+   # GET method to create graphs and render the main page
+   path('mainpage', views.mainpage),
+   # POST method to allow users to update their favorite coins
+   path('changecoins', views.changecoins),
+   # POST method to allow users to delete their account.
+   path('deluser', views.deluser)
 ]

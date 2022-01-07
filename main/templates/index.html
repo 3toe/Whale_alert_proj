@@ -6,13 +6,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    {% load static %}
    <link rel="stylesheet" href="{% static 'indexstyles.css' %}">
-   <title>WW Register or log in</title>
+   <title>Register or log in</title>
 </head>
 <body>
    <div id="container">
 
-      <h1>Welcome to whale watching!</h1>
-      <h3>Please log in to track your favorite coins' whales.</h3>
+      <h1>Welcome to Ahab</h1>
+      <h3>Hunt your favorite whales.</h3>
 
       {% if messages %}
       <ul>    
@@ -23,37 +23,27 @@
       {% endif %}
       
       <div id="content">
+
          <form action="/reg" method="POST">
          {% csrf_token %}
-            
-            <h2>Registration</h2>
-
-            <label>First name</label>
-            <input class="entry" type="text" name="fname">
-            <label>Last name</label>
-            <input class="entry" type="text" name="lname">
-            <label>Email</label>
-            <input class="entry" type="text" name="email">
-            <label>Password</label>
-            <input class="entry" type="text" name="password">
-            <label>Confirm password</label>
-            <input class="entry" type="text" name="p2">
-
+            <img src="{% static 'images/reg.png' %}" alt="reg icon">
+            <h5>Register</h5>
+            <input class="entry" type="text" name="alias" placeholder="UserName">
+            <input class="entry" type="text" name="email" placeholder="Email Address">
+            <input class="entry" type="password" name="password" placeholder="Password">
+            <input class="entry" type="password" name="p2" placeholder="Confirm Password">
             <input class="button" type="Submit" value="Register" name="reg">
          </form>
 
-         <form action="login" method="POST">
+         <form action="/login" method="POST">
          {% csrf_token %}
-            
-            <h2>Login</h2>
-
-            <label>Email</label>
-            <input class="entry" type="text" name="email">
-            <label>Password</label>
-            <input class="entry" type="text" name="password">
-
+            <img src="{% static 'images/login.png' %}" alt="login icon">
+            <h5>Log in</h5>
+            <input class="entry" type="text" name="email" placeholder="Email Address">
+            <input class="entry" type="password" name="password" placeholder="Password">
             <input class="button" type="Submit" value="Login" name="login">
          </form>
+
       </div>
    </div>
 </body>

@@ -21,6 +21,7 @@ class User(models.Model):
    alias = models.CharField(max_length=255)
    password = models.CharField(max_length=255)
    email = models.CharField(max_length=255)
+ # fav_currency = many2many rel
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)
    objects = LoginManager()
@@ -28,6 +29,6 @@ class User(models.Model):
 class Currency(models.Model):
    name = models.CharField(max_length=64)
    symbol = models.CharField(max_length=10)
-   faved_by = models.ManyToManyField(User, related_name="fav_currencies")
+   faved_by = models.ManyToManyField(User, related_name="fav_currency")
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)

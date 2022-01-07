@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '57um@6k1p=1n63xma8)4bc8)gbu6(zsay0+p%8tepgl&kgw)qk'
+SECRET_KEY = config('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'channels',
     'main',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+# ASGI_APPLICATION = "whale_watching.asgi.application" # for when I want to get this going async
 WSGI_APPLICATION = 'whale_watching.wsgi.application'
 
 

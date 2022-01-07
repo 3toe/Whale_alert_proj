@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {% load static %}
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Licorice&family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+   <link rel="stylesheet" href="{% static 'mainstyles.css' %}">
+   <title>Ahab</title>
+</head>
+<body>
+   <div id="container">
+      <div id="header">
+         <h1><span class="toptext">Whales</span>.Ahab</h1>
+         <div id="buttons">
+            <ul>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Contact</a></li>
+               <li><a href="/deluser" class="deluser">Delete account</a></li>
+               <li><a href="/logout">Log Out</a></li>
+            </ul>
+
+            <form action="/changecoins" method="POST">
+            {% csrf_token %}
+            <input class="liquid" type="Submit" value="Update" name="coinspref_button">
+               <div id="ck-button">
+                  {% for coin in CoinList %}
+                  <label>
+                     <input type="checkbox" {% if User in coin.faved_by.all %}checked{% endif %} name="{{coin.id}}"><span>{{coin.symbol}}</span>
+                  </label>
+                  {% endfor %}
+               </div>
+            </form>
+         </div>
+      </div>
+
+      <div id="middle">
+         <div id="sidebar">
+            <p>Created using:</p>
+            <ul>
+               <li><a href="https://whale-alert.io/">Whale Alert</a></li>
+               <li><a href="https://www.djangoproject.com/">Django</a></li>
+               <li><a href="https://bokeh.org/">Bokeh</a></li>
+            </ul>
+         </div>
+         <div id="graphs">
+         {% for div in Divs %}
+            {{ div | safe }}
+         {% endfor %}
+         </div>
+      </div>
+      <div id="footer">
+         <p>© AnthonyJS LLC - 2021  -  Background photo by <a href="https://unsplash.com/@jeremybishop?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jeremy Bishop</a> on <a href="https://unsplash.com/s/photos/underwater?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+      </div>   
+   </div>
+</body>
+{%for script in Scripts %}
+   {{script | safe }}
+{% endfor %}
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+</html>
